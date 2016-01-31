@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import os
+
+ll = os.popen('ls /usr/local/bin/ | grep rgit').readline()
+if len(ll) == 4:
+    os.popen('sudo rm /usr/local/bin/rgit')
+os.popen('chmod +x rand_commit_msg.py && sudo cp rand_commit_msg.py /usr/local/bin/rgit')
+
