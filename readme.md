@@ -6,4 +6,4 @@
 
 ### 使用方法
 1. 安装: sudo ./INSTALL
-2. 使用: rgit
+2. 使用: 在repo所在目录下运行rgit
