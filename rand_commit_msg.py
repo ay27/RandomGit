@@ -21,7 +21,7 @@ import subprocess
 
 URL = 'http://www.shicimingju.com/chaxun/shicirand/?i='
 CMD_GIT_ADD_ALL = 'git add -A'
-CMD_GIT_COMMIT = 'git commit -m " %s " '
+CMD_GIT_COMMIT = 'git commit -m "%s"'
 CMD_GIT_PUSH = 'git push origin master'
 
 
