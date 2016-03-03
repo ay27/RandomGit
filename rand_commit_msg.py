@@ -74,7 +74,7 @@ def run_cmd(cmd):
 
 if __name__ == '__main__':
     try:
-        msg = rand_msg()
+        msg = rand_msg().strip()
         run_cmd(CMD_GIT_ADD_ALL)
         run_cmd(CMD_GIT_COMMIT % msg)
         run_cmd(CMD_GIT_PUSH)
