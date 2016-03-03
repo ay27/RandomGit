@@ -69,7 +69,8 @@ def run_cmd(cmd):
     if rc == 0:
         return out
     else:
-        raise AssertionError('\n%s' % err)
+        print('return code is %d' % rc)
+        raise PermissionError('error')
 
 
 if __name__ == '__main__':
