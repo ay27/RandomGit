@@ -77,7 +77,7 @@ if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     try:
         arg_parser.add_argument('-m', type=str, default=rand_msg())
-        msg = arg_parser.parse_args().m.strip("。，？、 ,.?'\"")
+        msg = arg_parser.parse_args().m.strip("。，？、 ,.?'\"\r\n")
         # print(msg)
         run_cmd(CMD_GIT_ADD_ALL)
         run_cmd(CMD_GIT_COMMIT % msg)
