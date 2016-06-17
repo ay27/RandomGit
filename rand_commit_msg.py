@@ -62,16 +62,21 @@ def rand_msg():
     return parser.content[random.randint(0, len(parser.content) - 1)]
 
 
-def run_cmd(cmd):
+def run_cmd(cmd, show_msg=False):
     print(cmd)
-    p = subprocess.Popen(cmd, shell=True)
-    out, err = p.communicate()
-    # rc = p.returncode
-    # if rc == 0:
-    #     return out
-    # else:
-    #     print('return code is %d' % rc)
-    #     raise RuntimeError(out)
+    if not show_msg:
+        p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        rc = p.returncode
+        if rc == 0:
+            return out
+        else:
+            print('return code is %d' % rc)
+            raise RuntimeError(out)
+    else:
+        p = subprocess.Popen(cmd, shell=True)
+        out, err = p.communicate()
+
 
 
 if __name__ == '__main__':
@@ -84,7 +89,7 @@ if __name__ == '__main__':
         # print(msg)
         run_cmd(CMD_GIT_ADD_ALL)
         run_cmd(CMD_GIT_COMMIT % msg)
-        run_cmd(CMD_GIT_PUSH % branch)
+        run_cmd(CMD_GIT_PUSH % branch, True)
     except Exception as err:
         print(traceback.format_exc())
         exit(-1)
