@@ -64,14 +64,14 @@ def rand_msg():
 
 def run_cmd(cmd):
     print(cmd)
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(cmd, shell=True)
     out, err = p.communicate()
-    rc = p.returncode
-    if rc == 0:
-        return out
-    else:
-        print('return code is %d' % rc)
-        raise RuntimeError(out)
+    # rc = p.returncode
+    # if rc == 0:
+    #     return out
+    # else:
+    #     print('return code is %d' % rc)
+    #     raise RuntimeError(out)
 
 
 if __name__ == '__main__':
