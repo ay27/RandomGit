@@ -71,7 +71,7 @@ def run_cmd(cmd):
         return out
     else:
         print('return code is %d' % rc)
-        raise PermissionError('error when run cmd')
+        raise RuntimeError(out)
 
 
 if __name__ == '__main__':
