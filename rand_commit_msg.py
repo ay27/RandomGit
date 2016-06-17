@@ -22,7 +22,8 @@ import subprocess
 URL = 'http://www.shicimingju.com/chaxun/shicirand/?i='
 CMD_GIT_ADD_ALL = 'git add -A'
 CMD_GIT_COMMIT = 'git commit -m "%s"'
-CMD_GIT_PUSH = 'git push origin master'
+CMD_GIT_PUSH = 'git push origin %s'
+MASTER_BRANCH = 'master'
 
 
 class ParseContent(HTMLParser):
@@ -58,7 +59,7 @@ def rand_msg():
     content = g.read().decode('utf-8')
     parser = ParseContent()
     parser.feed(content)
-    return parser.content[random.randint(0, len(parser.content)-1)]
+    return parser.content[random.randint(0, len(parser.content) - 1)]
 
 
 def run_cmd(cmd):
@@ -77,11 +78,13 @@ if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     try:
         arg_parser.add_argument('-m', type=str, default=rand_msg())
+        arg_parser.add_argument('-b', type=str, default=MASTER_BRANCH)
         msg = arg_parser.parse_args().m.strip("。，？、 ,.?'\"")
+        branch = arg_parser.parse_args().b.strip("。，？、 ,.?'\"")
         # print(msg)
         run_cmd(CMD_GIT_ADD_ALL)
         run_cmd(CMD_GIT_COMMIT % msg)
-        run_cmd(CMD_GIT_PUSH)
+        run_cmd(CMD_GIT_PUSH % branch)
     except Exception as err:
         print(traceback.format_exc())
         exit(-1)
