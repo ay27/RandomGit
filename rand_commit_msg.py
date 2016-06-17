@@ -78,9 +78,13 @@ if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     try:
         arg_parser.add_argument('-m', type=str, default=rand_msg())
+<<<<<<< HEAD
         arg_parser.add_argument('-b', type=str, default=MASTER_BRANCH)
         msg = arg_parser.parse_args().m.strip("。，？、 ,.?'\"")
         branch = arg_parser.parse_args().b.strip("。，？、 ,.?'\"")
+=======
+        msg = arg_parser.parse_args().m.strip("。，？、 ,.?'\"\r\n")
+>>>>>>> 7434a300a5bf9468edbd8fcf78083926a175d3ef
         # print(msg)
         run_cmd(CMD_GIT_ADD_ALL)
         run_cmd(CMD_GIT_COMMIT % msg)
