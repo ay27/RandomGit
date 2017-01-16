@@ -5,5 +5,8 @@
 ### 环境:python3
 
 ### 使用方法
-1. 安装: sudo ./INSTALL
-2. 使用: 在repo所在目录下运行rgit 或 rgit -m 'msg'
+1. 安装： sudo ./INSTALL
+2. 参数：
+   * -m 'msg' : 指定commit message
+   * -b branch : 指定分支
+

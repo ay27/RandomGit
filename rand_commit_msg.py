@@ -78,12 +78,12 @@ def run_cmd(cmd, show_msg=False):
         out, err = p.communicate()
 
 
-
 if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     try:
-        arg_parser.add_argument('-m', type=str, default=rand_msg(), metavar='<msg>', help='Use the given <msg> as the commit message')
-        arg_parser.add_argument('-b', type=str, default=MASTER_BRANCH,metavar='<brch>', help='push to branch <brch>')
+        arg_parser.add_argument('-m', type=str, default=rand_msg(), metavar='<msg>',
+                                help='Use the given <msg> as the commit message')
+        arg_parser.add_argument('-b', type=str, default=MASTER_BRANCH, metavar='<brch>', help='push to branch <brch>')
         msg = arg_parser.parse_args().m.strip("。，？、 ,.?'\"")
         branch = arg_parser.parse_args().b
         # print(msg)
